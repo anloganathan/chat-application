@@ -261,7 +261,7 @@ socket.on('chatMsgsReq',(room)=>{
 });
 
 
-const PORT=9989 || process.env.PORT || 80;
-server.listen(PORT,'0.0.0.0',()=>{
+const PORT=process.env.PORT || 5000;
+server.listen(PORT,()=>{
     console.log(`Server Running At Port ${PORT}`);
 });
