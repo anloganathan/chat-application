@@ -29,6 +29,19 @@ socket.on('message',message =>{
     chatMessages.scrollTop=chatMessages.scrollHeight;
 });
 
+socket.on('chatMsgs',msgs=>{
+    console.log(msgs);
+    msgs.forEach(function(msg){
+    const div=document.createElement('div');
+    div.classList.add('message');
+    div.innerHTML=`<p class="meta">${msg.username} <span>${msg.time}</span></p>
+    <p class="text">
+       ${msg.text}
+    </p>`;
+    document.querySelector('.chat-messages').appendChild(div);
+    });
+});
+
 chatForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     //chat message container
@@ -60,6 +73,14 @@ function outputRoomName(room){
 
 //current users in the room
 function outputUsers(users){
+    console.log(users);
     userList.innerHTML=
     `${users.map(user=>`<li>${user.username}</li>`).join('')}`;
 }
+
+window.addEventListener('load',(e)=>{
+    //emit request to server
+    console.log("requesting msgs...")
+    socket.emit('chatMsgsReq',room);
+});
+

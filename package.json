@@ -4,15 +4,17 @@
   "description": "Chat App",
   "main": "server.js",
   "scripts": {
-    "start":"node server",
-    "dev":"nodemon server",
+    "start": "node server",
+    "dev": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^9.0.1",
     "express": "^4.17.1",
     "moment": "^2.29.1",
+    "mongoose": "^5.12.7",
     "socket.io": "^4.0.1"
   },
   "devDependencies": {

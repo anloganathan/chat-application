@@ -5,40 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
   <link rel="stylesheet" href="CSS/style.css">
-  <title>Chat App</title>
+  <title>Chit Chat</title>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <!-- ----------------------------------- -->
 </head>
-<body>
-  <div class="chat-container">
-    <header class="chat-header">
-      <h1><i class="fas fa-smile"></i> ChatApp</h1>
-      <a href="index.html" class="btn">Leave Room</a>
-    </header>
-    <main class="chat-main">
-      <div class="chat-sidebar">
-        <h3><i class="fas fa-comments"></i> Room Name:</h3>
-        <h2 id="room-name"></h2>
-        <h3><i class="fas fa-users"></i> Users</h3>
-        <ul id="users">
+<body class="w3-light-white w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-blue w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <div class="card" >
+        <div class="card-body" style="background-color:blue;">
         
-        </ul>
+          <h4 class="card-title" style="text-align:center;">Chit Chat</h4>
+          <h3 ><i class="fas fa-comments"></i> Room</h3>
+          <h4 id="room-name"></h4>
+          <button type="button" class="btn btn-light btn-block"><a href="index.html" class="btn">Leave</a></button>
+          <hr>
+          <div class="w3-bar-block">
+            <h3><i class="fas fa-users"></i> Users</h3>
+            <ul id="users">
+            
+            </ul>
+          </div>
+        </div>
       </div>
+  </div>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  
+    <div class="w3-top">
+      <div class="w3-bar w3-blue w3-padding-16">
+        <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-white" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+        
+      </div>
+    </div>
+    <header class="chat-header">
+
+    </header>
+    <hr>
+  <div class="chat-container">
       <div class="chat-messages">
 				<!- Messages -->
       </div>
-    </main>
-    <div class="chat-form-container">
+  </div>
+    <div class="w3-bottom">
+  <div class="w3-bar w3-blue w3-padding">
+    <div class="w3-container">
       <form id="chat-form">
         <input
           id="msg"
           type="text"
+          style="width:100%"
           placeholder="Enter Message"
           required
           autocomplete="off"
         />
-        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+    <button class="w3-bar-item w3-button w3-light w3-mobile"><i class="fas fa-paper-plane"></i> Send</button>
       </form>
+       
     </div>
   </div>
+</div>
+
+<!-- End page content -->
+</div>
 
   <script
       src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
@@ -47,5 +98,17 @@
     ></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/main.js"></script>
+  <script>
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+</script>
 </body>
 </html>
