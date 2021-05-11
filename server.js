@@ -260,7 +260,7 @@ socket.on('chatMsgsReq',(room)=>{
 });
 
 
-const PORT=3000 || process.env.PORT;
+const PORT=9999 || process.env.PORT;
 server.listen(PORT,()=>{
     console.log(`Server Running At Port ${PORT}`);
 });
