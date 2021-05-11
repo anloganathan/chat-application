@@ -5,8 +5,8 @@ const app=express();
 const http=require('http');
 const socketio=require('socket.io');
 const mongoose=require('mongoose');
-DB_URL="mongodb+srv://authuser:authuser@cluster0.wrelr.mongodb.net/usersdb?retryWrites=true&w=majority"
-const db=DB_URL;
+const db="mongodb+srv://authuser:authuser@cluster0.wrelr.mongodb.net/usersdb?retryWrites=true&w=majority"
+
 const moment=require('moment');
 
 //*****************************************
